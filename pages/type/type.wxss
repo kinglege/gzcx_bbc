@@ -1,0 +1,59 @@
+/* pages/type/type.wxss */
+page{
+  padding-bottom: 90rpx;
+}
+.cars_type {
+  padding: 60rpx 30rpx 80rpx 60rpx;
+}
+
+.type_img {
+  width: 165rpx;
+  height: 82rpx;
+}
+
+.type_img image {
+  width: 100%;
+  height: 82rpx;
+}
+
+.btn_bottom{
+  background: #fff;
+  margin-top: 100rpx;
+  position: fixed;
+  height: 98rpx;
+  bottom: 0;
+
+}
+
+
+.share_img{
+  width: 50rpx;
+  height: 40rpx;
+}
+.share_img image{
+  width: 34rpx;
+  height: 40rpx;
+}
+
+.zan2_img,.zan2_img image{
+   width: 38rpx;
+  height: 34rpx; 
+}
+.bottom_width{
+  width:50%;
+}
+.left_width{
+  width: 350rpx;
+}
+.btn-height{
+  height: 98rpx;
+}
+
+
+.btn{
+  width: 200rpx;
+  height: 98rpx;
+  line-height: 98rpx;
+  color: #fff;
+  text-align: center;
+}

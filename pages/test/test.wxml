@@ -1,0 +1,26 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back'></text>
+    </navigator>
+    <view class='content' style='top:{{StatusBar}}px;'>测试</view>
+  </view>
+</view>
+
+
+<!--pages/favorite/favorite.wxml-->
+<view class='page_container'>
+  <view class='good-item' wx:for='{{goodsList}}'>
+    <image class='good-img' src='{{item.img}}' mode='widthFix'></image>
+
+    <view>
+      <!-- 收藏过否 -->
+      <view class="flex align-center">
+        <image class='fav-icon' catchtap='onCollectionTap' src="../../images/fav{{item.collected?'_on':''}}.png" data-index='{{index}}'></image>
+        <text>{{item.dzzs}}</text>
+      </view>
+    </view>
+  </view>
+  
+</view>

@@ -1,0 +1,192 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed  bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class="flex  align-center padding-left-sm">
+      <view class="ico-car">
+        <image src="../../images/ico-car.png"></image>
+      </view>
+    </view>
+    <input class=" search bg-gray-default font-xs flex justify-between align-center" bindtap="search" type="text" placeholder="宝马">
+    <text class="cuIcon-search padding-right-sm"></text>
+    </input>
+  </view>
+</view>
+
+<!-- 切换 -->
+<view class="tab-box">
+  <text bindtap='changTab' class="{{currentTab==0 ? 'active' : ''}} tab_box_text" data-current='0'>热门</text>
+  <text bindtap='changTab' class="{{currentTab==1 ? 'active' : ''}} tab_box_text" data-current='1'>试驾</text>
+  <text bindtap='changTab' class="{{currentTab==2 ? 'active' : ''}} tab_box_text" data-current='2'>车讯</text>
+</view>
+
+<view class="margin-top-sm" style="padding-top:80rpx;">
+  <!-- <view class='text-center' wx:if="{{loadModal}}">
+    <image src='/images/more.gif' style="width:280rpx;height:140rpx;"></image>
+  </view> -->
+  <!-- <view class='loading-modal' wx:if="{{loadModal}}">
+        <image src='/images/more.gif'></image>
+  </view> -->
+  <view wx:if="{{currentTab==0}}">
+
+    <!-- 瀑布流开始 -->
+    <view class='case-page'>
+      <view class='list-masonry'>
+        <view class='item-masonry' wx:for="{{data}}" wx:key>
+          
+          <view class="topicImg" data-id="{{item.id}}" bindtap="detail">
+            <image src='{{item.cover_url}}' mode='widthFix' style="border: 0;vertical-align: bottom; displat:block;"></image>
+          </view>
+
+          <view class="padding-tb-xs padding-lr-sm">
+            <view class="text-sm font-bold newsTitle">{{item.title}}</view>
+            <view class="flex justify-between align-center padding-top-xs">
+              <view class="flex align-center">
+                <view class="pho">
+                  <image src="{{item.headImg}}"></image>
+                </view>
+                <view class="padding-left-xs font-xs font-gray-666 userName">{{item.username}}</view>
+              </view>
+
+              <view class="text-sm font-gray-default">
+                <view class="cuIcon-attention ">
+                  <text> {{item.visited_num}}</text>
+                </view>
+              </view>
+
+            </view>
+
+          </view>
+          <view class="bgHui"></view>
+        </view>
+      </view>
+    </view>
+    <!-- 瀑布流结束 -->
+
+  </view>
+
+
+
+
+  <view wx:if="{{currentTab==1}}">
+
+    <!-- 瀑布流开始 -->
+    <view class='case-page'>
+      <view class='list-masonry'>
+        <view class='item-masonry' wx:for="{{data}}" wx:key>
+          <view class="tupian" data-id="{{item.id}}" bindtap="detail">
+            <image src='{{item.cover_url}}' mode='widthFix' style="border: 0;vertical-align: bottom;"></image>
+          </view>
+
+          <view class="padding-tb-xs padding-lr-sm">
+            <view class="text-sm font-bold newsTitle">{{item.title}}</view>
+            <view class="flex justify-between align-center padding-top-xs">
+              <view class="flex align-center">
+                <view class="pho">
+                  <image src="{{item.headImg}}"></image>
+                </view>
+                <view class="padding-left-xs font-xs font-gray-666 userName">{{item.username}}</view>
+              </view>
+
+              <view class="text-sm font-gray-default">
+                <view class="cuIcon-attention ">
+                  <text> {{item.visited_num}}</text>
+                </view>
+              </view>
+
+            </view>
+
+          </view>
+          <view class="bgHui"></view>
+        </view>
+      </view>
+    </view>
+    <!-- 瀑布流结束 -->
+
+  </view>
+
+  <view wx:if="{{currentTab==2}}">
+    <!-- 瀑布流开始 -->
+    <view class='case-page'>
+      <view class='list-masonry'>
+        <view class='item-masonry' wx:for="{{data}}" wx:key>
+          <view class="tupian" data-id="{{item.id}}" bindtap="detail">
+            <image src='{{item.cover_url}}' mode='widthFix' style="border: 0;vertical-align: bottom;"></image>
+          </view>
+
+          <view class="padding-tb-xs padding-lr-sm">
+            <view class="text-sm font-bold newsTitle">{{item.title}}</view>
+            <view class="flex justify-between align-center padding-top-xs">
+              <view class="flex align-center">
+                <view class="pho">
+                  <image src="{{item.headImg}}"></image>
+                </view>
+                <view class="padding-left-xs font-xs font-gray-666 userName">{{item.username}}</view>
+              </view>
+
+              <view class="text-sm font-gray-default">
+                <view class="cuIcon-attention ">
+                  <text> {{item.visited_num}}</text>
+                </view>
+              </view>
+
+            </view>
+
+          </view>
+          <view class="bgHui"></view>
+        </view>
+      </view>
+    </view>
+    <!-- 瀑布流结束 -->
+  </view>
+
+</view>
+
+
+
+
+
+
+
+<view class="jia" bindtap="showModal" data-target="bottomModal">
+  <view class="img-jia">
+    <image src="../../images/ico-jia.png"></image>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar">
+      <view class="action text-green"></view>
+      <view class="action font-gray-666 cuIcon-roundclose padding-tb-sm" style="font-size:38rpx;" bindtap="hideModal"></view>
+    </view>
+    <view class="padding-xl">
+      <view class="flex justify-center">
+        <view class="padding-lr-xl" data-id="{{}}" bindtap='onAddImage'>
+          <view class="ico_dialog">
+            <image src="../../images/tuwen.png"></image>
+          </view>
+          <view class="text-sm font-black-title padding-top-xs">图文</view>
+        </view>
+
+        <view class="padding-lr-xl" bindtap='onAddVideo'>
+          <view class="ico_dialog">
+            <image src="../../images/shipin.png"></image>
+          </view>
+          <view class="text-sm font-black-title padding-top-xs">视频</view>
+        </view>
+
+        <view class="padding-lr-xl" bindtap='roughDraft'>
+          <view class="ico_dialog">
+            <image src="../../images/caogao.png"></image>
+          </view>
+          <view class="text-sm font-black-title padding-top-xs">草稿</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+ <view class='load-progress {{progress+vidio_progress!=0 && !upload_finish?"show":"hide"}}' style="top:{{CustomBar}}px;">
+  <view class='load-progress-bar bg-green' style="transform: translate3d(-{{100-progress-vidio_progress}}%, 0px, 0px);"></view>
+  <view class='load-progress-spinner text-green'></view>
+</view>

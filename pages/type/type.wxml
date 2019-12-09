@@ -1,0 +1,120 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black '></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>车型总览</view>
+  </view>
+</view>
+
+
+<view class="bg-white cars_type flex  align-start" style="margin-top:1px">
+  <view class="type_img">
+    <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+  </view>
+  <view class="padding-left ">
+    <view class="text-lg font-bold">宝马3系2020款530i时尚型</view>
+    <view class="flex text-sm padding-top-sm font-gray-999 align-start">
+      <view>指导价: 35.00W</view>
+      <view class="padding-left-sm flex">
+        <view>参考价：</view>
+        <view class="text-lg font-bold colorOrange">32.00W</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="bg-white margin-top-sm padding">
+  <view class="padding-bottom text-lg font-black-title font-bold">基本参数</view>
+  <view class="bg-gray-default padding text-sm font-gray-666 radius">
+    <view class="flex justify-between align-center">
+      <view>排量：</view>
+      <view>2.0T</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>变速箱：</view>
+      <view>双离合</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>综合耗油：</view>
+      <view>6.5L</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>运气形式：</view>
+      <view>涡轮增加</view>
+    </view>
+  </view>
+</view>
+
+<view class="bg-white margin-top-sm padding">
+  <view class="padding-bottom text-lg font-black-title font-bold">车身</view>
+  <view class="bg-gray-default padding text-sm font-gray-666 radius">
+    <view class="flex justify-between align-center">
+      <view>排量：</view>
+      <view>2.0T</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>变速箱：</view>
+      <view>双离合</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>综合耗油：</view>
+      <view>6.5L</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>运气形式：</view>
+      <view>涡轮增加</view>
+    </view>
+  </view>
+</view>
+
+<view class="bg-white margin-top-sm padding">
+  <view class="padding-bottom text-lg font-black-title font-bold">车身</view>
+  <view class="bg-gray-default padding text-sm font-gray-666 radius">
+    <view class="flex justify-between align-center">
+      <view>排量：</view>
+      <view>2.0T</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>变速箱：</view>
+      <view>双离合</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>综合耗油：</view>
+      <view>6.5L</view>
+    </view>
+    <view class="flex justify-between align-center padding-top-lg">
+      <view>运气形式：</view>
+      <view>涡轮增加</view>
+    </view>
+  </view>
+</view>
+
+<view class="btn_bottom">
+  <view class="flex justify-between btn-height align-center">
+
+    <view class="flex justify-start left_width align-center">
+      <view class="padding-top-xs" style="padding-left:92rpx">
+        <view class="share_img ">
+          <image src="../../images/share.png"></image>
+        </view>
+        <view class="padding-top-xs text-xs font-gray-666">分享</view>
+      </view>
+
+      <view class="padding-top-xs" style="padding-left:92rpx">
+        <view class="zan2_img">
+          <image src="../../images/zan2.png"></image>
+        </view>
+        <view class="padding-top-xs text-xs font-gray-666">收藏</view>
+      </view>
+    </view>
+
+    <view class="flex justify-end align-center">
+      <view class="btn_contact btn">联系我们</view>
+      <navigator url="../ask/ask"><view class="btn_ask btn">询问低价</view></navigator>
+    </view>
+
+  </view>
+
+</view>

@@ -1,0 +1,80 @@
+/* pages/my_post/my_post.wxss *//* 瀑布流 */
+
+/* .case-page {
+  padding:0 20rpx;
+} */
+
+.list-masonry {
+  column-count: 2;
+  column-gap: 20rpx;
+}
+
+.item-masonry {
+  width: 100%;
+  background-color: #fff;
+  break-inside: avoid; /*避免在元素内部插入分页符*/
+  box-sizing: border-box;
+}
+
+.item-masonry .topicImg image {
+  width: 100%;
+}
+.bgHui{
+  height: 20rpx;
+  background: #f8f8f8;
+  width: 100%;
+}
+
+.pho image {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 100%;
+}
+.ico_video{
+  width: 60rpx;
+  height: 60rpx;
+}
+.ico_video image{
+  width: 60rpx;
+  height: 60rpx;
+}
+.content {
+  margin: 0 20rpx;
+  text-align: justify;
+}
+
+.item {
+  border-radius: 10px;
+  background-color: #fff;
+  margin: 1%;
+  margin-bottom: 20rpx;
+  display: inline-block;
+}
+
+.userName {
+  width: 7em;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.newsTitle {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.item-ava {
+  width: 40rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+}
+
+.clickLike {
+  width: 25rpx;
+  height: 24rpx;
+  margin-right: 5rpx;
+}

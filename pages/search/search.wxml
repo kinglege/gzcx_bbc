@@ -1,0 +1,122 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>宝马搜索</view>
+  </view>
+</view>
+
+<!-- <view class="cu-bar bg-white search fixed" style="top:{{CustomBar}}px">
+  <view class="search-form suosou">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索综合" confirm-type="search"></input>
+  </view>
+</view> -->
+
+  <view class="cu-bar bg-white search">
+    <view class="search-form radius">
+      <text class="cuIcon-search"></text>
+      <input type="text" placeholder="搜索宝马" confirm-type="search"></input>
+    </view>
+  </view>
+
+<!-- 切换 -->
+<view class="tab-box">
+  <text bindtap='changTab' class="{{currentTab==0 ? 'active' : ''}} tab_box_text" data-current='0'>全部</text>
+  <text bindtap='changTab' class="{{currentTab==1 ? 'active' : ''}} tab_box_text" data-current='1'>车型</text>
+  <text bindtap='changTab' class="{{currentTab==2 ? 'active' : ''}} tab_box_text" data-current='2'>视频</text>
+</view>
+
+<view style="border-top:2rpx solid #f8f8f8;">
+  <view wx:if="{{currentTab==0}}">
+    <view class="bg-white padding">
+      <view class="flex align-center justify-between padding-bottom-lg">
+        <view class="flex align-center">
+          <view class="ico-xgqc">
+            <image src="../../images/ico-xgqc.png"></image>
+          </view>
+          <view class="text-xl font-bold padding-left-sm">相关推荐</view>
+        </view>
+        <view class="more_cars">更多车型</view>
+      </view>
+
+      <view class="flex justify-start align-center cars-item">
+        <view class="cars  padding-right-lg">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+        </view>
+        <view class="text-lg font-bold ">
+          <view class="padding-bottom-sm font-gray-default">宝马3系</view>
+          <view class="money">22.94-25.00W</view>
+        </view>
+      </view>
+      <view class="flex justify-start align-center cars-item">
+        <view class="cars  padding-right-lg">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+        </view>
+        <view class="text-lg font-bold ">
+          <view class="padding-bottom-sm font-gray-default">宝马3系</view>
+          <view class="money">22.94-25.00W</view>
+        </view>
+      </view>
+      <view class="flex justify-start align-center cars-item">
+        <view class="cars  padding-right-lg">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+        </view>
+        <view class="text-lg font-bold ">
+          <view class="padding-bottom-sm font-gray-default">宝马3系</view>
+          <view class="money">22.94-25.00W</view>
+        </view>
+      </view>
+    </view>
+
+
+
+    <view class="bg-white padding-lr">
+      <view class="flex align-center">
+        <view class="ico-news">
+          <image src="../../images/ico-news.png"></image>
+        </view>
+        <view class="text-xl font-bold padding-left-sm">相关车讯</view>
+      </view>
+
+      <view class="Customer_release flex bg-white justify-between align-center " style="border-bottom:9rpx soild #000;">
+        <view class="Customer_release_left padding-right">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/Customer_release.png"></image>
+        </view>
+        <view class="Customer_release_right">
+          <view class="font-sm font-black-title font-bold">新车已到店 全新宝马X6广州车广州车展上市</view>
+          <view class="flex padding-sm justify-between" style="padding-left:0">
+
+            <view class="text-xs font-gray-999">1235阅读</view>
+            <view class="padding-left-lg text-xs font-gray-999 ">发布于1小时</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="Customer_release flex bg-white justify-between align-center ">
+        <view class="Customer_release_left padding-right">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/Customer_release.png"></image>
+        </view>
+        <view class="Customer_release_right">
+          <view class="font-sm font-black-title font-bold">新车已到店 全新宝马X6广州车广州车展上市</view>
+          <view class="flex padding-sm justify-between" style="padding-left:0">
+            <view class="text-xs font-gray-999">1235阅读</view>
+            <view class="padding-left-lg text-xs font-gray-999 ">发布于1小时</view>
+          </view>
+        </view>
+      </view>
+
+
+
+    </view>
+
+
+
+
+  </view>
+
+  <view wx:if="{{currentTab==1}}">2</view>
+  <view wx:if="{{currentTab==2}}">3</view>
+</view>

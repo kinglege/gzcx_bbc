@@ -1,0 +1,24 @@
+/* pages/ask/ask.wxss */
+
+.cars_type {
+  padding: 60rpx 30rpx 80rpx 60rpx;
+}
+
+.type_img {
+  width: 175rpx;
+  height: 88rpx;
+}
+
+.type_img image {
+  width: 100%;
+  height: 88rpx;
+}
+
+.btn_question {
+  margin-top: 88rpx;
+  width: 638rpx;
+  height: 88rpx;
+  color: #fff;
+  box-shadow: 0rpx 3rpx 55rpx 0rpx rgba(0, 0, 0, 0.05);
+  border-radius: 44rpx;
+}

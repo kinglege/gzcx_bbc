@@ -1,0 +1,10 @@
+/* pages/test/test.wxss */
+.box{
+    float: left;
+    width: 48%;
+    margin: 0 1%;
+}
+.imgBox{
+    width: 100%;
+    margin: 1% 0;
+}

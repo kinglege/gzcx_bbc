@@ -1,0 +1,18 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black '></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>ss</view>
+  </view>
+</view>
+
+
+<image class="imgBox " bindload="imgLoad" wx:for="{{imgList}}" wx:key="{{index}}" mode="widthFix" data-url="{{item}}" data-index="{{index}}" src='{{item}}'></image>
+<view class='box'>
+  <image class="imgBox" wx:for="{{imgLeft}}" wx:key="{{index}}" mode="widthFix" src='{{item}}'></image>
+</view>
+<view class='box'>
+  <image class="imgBox" wx:for="{{imgRight}}" wx:key="{{index}}" mode="widthFix" src='{{item}}'></image>
+</view>

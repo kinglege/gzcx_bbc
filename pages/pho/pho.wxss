@@ -1,0 +1,71 @@
+/* pages/pho/pho.wxss */
+
+/* .imgList{
+  width: 334rpx;
+  height: 229rpx;
+} */
+
+.imgList .imgList-li {
+  width: 360rpx;
+  height: 229rpx;
+  float: left;
+  margin-bottom: 30rpx;
+}
+
+.imgList .imgList-li .img {
+  width: 360rpx;
+  height: 229rpx;
+}
+
+.warp {
+  padding-top: 90rpx;
+  padding-bottom: 180rpx;
+  overflow: hidden;
+}
+
+/* 切换 */
+
+.tab-box {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  padding-right: 65rpx;
+  background: white;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  z-index: 999;
+}
+
+.tab_box_text {
+  margin-left: 60rpx;
+  height: 74rpx;
+  line-height: 72rpx;
+  color: #666;
+}
+
+.active {
+  border-bottom: 30rpx solid rgb(246, 72, 38);
+  font-size: 32rpx;
+  color: #0d0d0d;
+  font-weight: bold;
+}
+
+.cars_buttom {
+  width: 100%;
+  height: 169rpx;
+  position: fixed;
+  bottom: 0;
+  overflow: hidden;
+  background: #fff;
+}
+
+.ask_price {
+  width: 157rpx;
+  height: 56rpx;
+  color: #fff;
+  line-height: 56rpx;
+  text-align: center;
+  border-radius: 28rpx;
+  margin-right: 20rpx;
+}

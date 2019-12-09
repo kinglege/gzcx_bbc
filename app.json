@@ -1,0 +1,71 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/my_post/my_post",
+    "pages/auth/auth",
+    "pages/xuanche/xuanche",
+    "pages/test1/test1",
+    "pages/test/test",
+    "pages/post/post",
+    "pages/huati/huati",
+    "pages/detail/detail",
+    "pages/set/set",
+    "pages/carDetail/carDetail",
+    "pages/collect/collect",
+    "pages/suosou/suosou",
+    "pages/search/search",
+    "pages/type/type",
+    "pages/pho/pho",
+    "pages/cars/cars",
+    "pages/choose/choose",
+    "pages/select/select",
+    "pages/ask/ask",
+    "pages/index2/index2",
+    "pages/home/home",
+    "pages/us/us",
+    "pages/cover_editor/index",
+    "pages/news_editor/index",
+    "pages/agreement/agreement",
+    "pages/about_us/about_us",
+    "pages/policy/policy"
+  ],
+  "window": {
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "买买车",
+    "navigationStyle": "custom",
+    "navigationBarTextStyle": "black"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于爱傢提供更精确的服务"
+    }
+  },
+  "usingComponents": {},
+  "tabBar": {
+    "color": "#646464",
+    "selectedColor": "#e54d42",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "/images/home.png",
+        "selectedIconPath": "/images/home_active.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "iconPath": "/images/car.png",
+        "selectedIconPath": "/images/car_active.png",
+        "text": "车型库"
+      },
+      {
+        "pagePath": "pages/us/us",
+        "iconPath": "/images/wo.png",
+        "selectedIconPath": "/images/wo_active.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap29.json"
+}

@@ -1,0 +1,15 @@
+/* pages/agreement/agreement.wxss */
+page{
+  background: #fff;
+}
+.title{
+  text-align: center;
+  margin: 50rpx auto;
+  font-weight: 700;
+}
+.line-height{
+  line-height: 40rpx;
+}
+.mt{
+  margin-top: 10rpx;
+}

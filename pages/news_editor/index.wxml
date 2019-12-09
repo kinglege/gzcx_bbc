@@ -1,0 +1,137 @@
+<!-- 头部配置 -->
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action' bindtap="back" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </view>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>发帖</view>
+  </view>
+</view>
+
+
+
+
+<scroll-view id="page" class='bg-white' style='height: {{windowHeight - CustomBar -50}}px' scroll-y="true" scroll-top="{{scrollTop}}">
+  <view class="cu-form-group">
+    <textarea style="max-height:150rpx;" maxlength="-1" disabled="{{modalName!=null}}" bindinput="titleInput" auto-height placeholder="精彩的标题更容易被推荐哦（选填）"></textarea>
+  </view>
+  <scroll-view scroll-x class="bg-white nav padding-top-xs padding-lr-sm">
+    <view class="cu-item" wx:for='{{select_topic}}' wx:key bindtap="del_topic" data-index="{{index}}">
+      <view class="btn_reset text-orange flex justify-around margin-right-sm padding-lr-sm">
+        <view>{{item.title}}</view>
+        <view class="cuIcon-close"></view>
+      </view>
+    </view>
+  </scroll-view>
+  <view class="cu-form-group">
+    <textarea maxlength="-1" disabled="{{modalName!=null}}" bindinput="contentInput" style='min-height:165rpx;font-size:32rpx;max-height:400rpx;' auto-height placeholder="此刻我想说"></textarea>
+  </view>
+  <view>
+    <view wx:for='{{posts_elements}}' class='margin-bottom-sm'>
+
+      <!-- 图片元素 -->
+      <view wx:if='{{item.type==1}}' class='bg-black' style='position: relative;'>
+        <image src='/images/bottom.png' class='elements_icon elements_img_icon' style='right:160rpx' bindtap='upward_elements' data-index='{{index}}'></image>
+        <image src='/images/top.png' class='elements_icon elements_img_icon' style='right:90rpx' bindtap='downward_elements' data-index='{{index}}'></image>
+        <image src='/images/cancel.png' class='elements_icon elements_img_icon' bindtap='show_delete_elements_model' data-index='{{index}}'></image>
+        <image mode='widthFix' src='{{item.tempFilePath}}' style='width:100%;'></image>
+        <view class="cu-form-group" style='background:rgb(50,50,50);color:rgb(230,230,230)'>
+          <textarea maxlength="-1" disabled="{{modalName!=null}}" auto-height placeholder="添加描述..." bindinput="remark_input" data-index='{{index}}' value='{{item.remark}}'></textarea>
+        </view>
+      </view>
+
+
+
+      <!-- 文字元素 -->
+      <view wx:if='{{item.type==2}}' class='bg-gray-default padding-lr-sm padding-bottom-sm margin-bottom' style='position: relative;'>
+        <view class='flex justify-between padding-tb-sm'>
+          <view class='font-xl font-black-default'>
+
+          </view>
+          <view>
+            <image src='/images/bottom.png' class='elements_icon' style='margin-right:10rpx' bindtap='upward_elements' data-index='{{index}}'></image>
+            <image src='/images/top.png' class='elements_icon' style='margin-right:10rpx' bindtap='downward_elements' data-index='{{index}}'></image>
+            <image src='/images/cancel.png' class='elements_icon' bindtap='show_delete_elements_model' data-index='{{index}}' style='margin-right:20rpx'></image>
+          </view>
+        </view>
+        <view class="cu-form-group cu-form-group2" style=''>
+          <textarea class='font-default' maxlength="-1" disabled="{{modalName!=null}}" auto-height placeholder="输入文字" bindinput="text_input" data-index='{{index}}' value='{{item.text}}'></textarea>
+        </view>
+      </view>
+      <!-- 视频元素 -->
+      <view wx:if='{{item.type==3}}' class='bg-black' style='position: relative;'>
+        <view class='flex justify-between padding-tb-sm'>
+          <view class='font-xl font-black-default'>
+
+          </view>
+          <view>
+            <image src='/images/bottom.png' class='elements_icon' style='margin-right:10rpx' bindtap='upward_elements' data-index='{{index}}'></image>
+            <image src='/images/top.png' class='elements_icon' style='margin-right:10rpx' bindtap='downward_elements' data-index='{{index}}'></image>
+            <image src='/images/cancel.png' class='elements_icon' bindtap='show_delete_elements_model' data-index='{{index}}' style='margin-right:20rpx'></image>
+          </view>
+        </view>
+        <video autoplay='{{true}}' show-center-play-btn="{{false}}" src='{{item.tempFilePath}}' controls="true" objectFit="cover" style='width:100%'>
+        </video>
+        <view class="cu-form-group" style='background:#4444;color:rgb(230,230,230)'>
+          <textarea maxlength="-1" disabled="{{modalName!=null}}" auto-height placeholder="添加描述..." bindinput="remark_input" data-index='{{index}}' value='{{item.remark}}'></textarea>
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+
+<view class='bg-white'>
+  <view class='bottom_bar font-gray-default bg-white flex justify-between align-center padding-lr'>
+    <!-- <view class='padding-sm flex justify-around'>
+      <button class="cu-btn bg-red margin-tb-sm lg" bindtap='onAddImage'>添加图片</button>
+      <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='onAddVideo'>添加视频</button>
+      <button class="cu-btn bg-blue margin-tb-sm lg" bindtap='onAddText'>添加文字</button>
+      <button class="cu-btn bg-black margin-tb-sm lg" bindtap='toCoverEditor'>添加话题</button>
+    </view> -->
+    <view class="flex justify-around" style="width:100%; position: relative;">
+      <view class="addItem" bindtap='onAddImage'>
+        <view class="add_img">
+          <image src="../../images/add-img.png"></image>
+        </view>
+        <view class="text-xs font-gray-666">添加图片</view>
+      </view>
+
+      <view class="addItem" bindtap='onAddVideo'>
+        <view class="add_img">
+          <image src="../../images/add-video.png"></image>
+        </view>
+        <view class="text-xs font-gray-666">添加视频</view>
+      </view>
+
+      <view class="addItem " bindtap='onAddText'>
+        <view class="add_img">
+          <image src="../../images/add-text.png"></image>
+        </view>
+        <view class="text-xs font-gray-666">添加文字</view>
+      </view>
+
+      <view class="addItem addtopic" bindtap='onAddTopic'>
+        <view class="topicSum " wx-if="{{select_topic.length}}">{{select_topic.length}}</view>
+        <view class="disnone " wx-else></view>
+        <view class="add_img">
+          <image src="../../images/add-huati.png"></image>
+        </view>
+        <view class="text-xs font-gray-666">添加话题</view>
+
+      </view>
+
+    </view>
+
+    <view class="btn_ask btn_next" data-item="{{posts_elements}}" data-id="{{posts_elements.id}}" bindtap='toCoverEditor'>下一步</view>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='bottomModal'?'show':''}}">
+  <view class="cu-dialog">
+    <view class='padding text-center font-default text-red' bindtap='delete_elements'>确定要删除吗</view>
+    <view class='padding-tb-xs' style='background:#ccc'></view>
+    <view class='padding text-center font-default font-black-default' bindtap='hideModel'>取消</view>
+  </view>
+</view>

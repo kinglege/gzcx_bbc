@@ -1,0 +1,84 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='action' bindtap="back" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </view>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>话题添加</view>
+  </view>
+</view>
+
+
+<view class="cu-bar bg-white search">
+  <view class="search-form radius">
+    <text class="cuIcon-search"></text>
+    <input type="text" placeholder="搜索话题" value="" name="" confirm-type="search" bindinput="search"></input>
+  </view>
+</view>
+
+
+<view class="margin-lr margin-top-xs" style="margin-bottom:140rpx;">
+
+  <view wx:if='{{topic_title && new_topic}}' class="hua_item" style="margin-bottom:30rpx;margin-top:10rpx;" bindtap="addNewHuati">
+    <view class="flex align-center">
+      <view class="hua_left">
+        <view class="huati_img">
+          <image src="../../images/add-huati.png"></image>
+        </view>
+      </view>
+
+      <view class="margin-left-lg">
+        <view class="text-lg font-bold text-orange">{{topic_title}}</view>
+        <view class="padding-top-xs text-orange">新话题 还没有人参与</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="flex align-center">
+    <view class="ico_huo">
+      <image src="../../images/huo.png"></image>
+    </view>
+    <view class="margin-left-xs text-sm text-black">推荐话题</view>
+  </view>
+
+
+  <view class="hua_item" wx:for="{{topic}}" data-item="{{item}}" wx:key bindtap="{{item.select?'':'huati'}}">
+    <view class="flex align-center">
+      <view class="hua_left">
+        <view class="huati_img">
+          <image src="../../images/add-huati.png"></image>
+        </view>
+      </view>
+
+      <view class="margin-left-lg">
+        <view class="text-lg font-bold {{item.select?'text-orange':''}}">{{item.title}}</view>
+        <view class="padding-top-xs {{item.select?'text-orange':''}}">{{item.attention_num}}人关注 {{item.topic_use_count}}篇帖子</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+
+
+<view class="btn_huati">
+
+
+  <view class="padding-xs flex justify-between  align-center">
+    <view style="width:70%;">
+      <scroll-view scroll-x class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}" style="width:100%; margin-left:20rpx;">
+        <view class="cu-item" wx:for='{{select_topic}}' wx:key bindtap="del_topic" data-index="{{index}}">
+          <view class="btn_reset flex justify-around margin-right-sm padding-lr-sm">
+            <view>{{item.title}}</view>
+            <view class="cuIcon-close"></view>
+          </view>
+        </view>
+      </scroll-view>
+
+    </view>
+
+    <view class="btn_ask add_btn margin-right-sm" bindtap="back">确认添加</view>
+
+  </view>
+
+</view>

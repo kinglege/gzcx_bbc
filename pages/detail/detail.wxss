@@ -1,0 +1,146 @@
+/* pages/space/space.wxss */
+button::after{ border: none; }
+
+.cars_top {
+  position: relative;
+}
+
+.top_img {
+  width: 690rpx;
+  height: 364rpx;
+  position: relative;
+}
+
+.top_img image {
+  width: 100%;
+  height: 364rpx;
+}
+
+.tip {
+  position: absolute;
+  right: 0;
+  bottom: 40rpx;
+  color: #fff;
+  background: #666;
+  display: inline-block;
+  font-size: 20rpx;
+  padding: 5rpx 10rpx;
+  border-radius: 30rpx 0 0 30rpx;
+}
+
+.canshu_img, .canshu_img image {
+  width: 140rpx;
+  height: 60rpx;
+}
+
+.canshu_btn {
+  width: 132rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  background-color: #f2f2f2;
+  border-radius: 24rpx;
+  text-align: center;
+  color: #999;
+  font-size: 24rpx;
+  margin-left:10rpx;
+}
+
+/* 切换 */
+
+.tab-box {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  overflow: hidden;
+  padding-left: 42rpx;
+}
+
+.tab_box_text {
+  margin-right: 60rpx;
+  height: 74rpx;
+  line-height: 72rpx;
+  color: #666;
+}
+
+.active {
+  border-bottom: 30rpx solid rgb(246, 72, 38);
+  font-size: 32rpx;
+  color: #0d0d0d;
+  font-weight: bold;
+}
+
+.year_item { 
+  border-radius: 20rpx;
+  border: 2rpx solid rgb(214, 214, 214);
+  font-size: 20rpx;
+  margin-right: 30rpx;
+}
+.nav .cu-item{
+ height: 45rpx;
+ line-height: 45rpx;
+ padding:0 20rpx;
+}
+.selected {
+  background-image: linear-gradient(-27deg, #f54827 0%, #f88423 100%),linear-gradient(#892222, #892222);
+  color: #fff;
+}
+.ask{
+ 	width: 140rpx;
+	height: 48rpx;
+	border-radius: 24rpx;
+  line-height: 48rpx;
+  font-size: 24rpx;
+  color: #fff;
+  text-align: center;
+  margin-left: 20rpx;
+}
+
+.detail_bottom{
+  background: #fff;
+  width: 100%;
+  position: fixed;
+  bottom:0rpx;
+}
+
+
+/* 瀑布流 */
+
+/* .case-page {
+  padding:0 20rpx;
+} */
+
+.list-masonry {
+  column-count: 2;
+  column-gap: 20rpx;
+}
+
+.item-masonry {
+  width: 100%;
+  background-color: #fff;
+  break-inside: avoid; /*避免在元素内部插入分页符*/
+  box-sizing: border-box;
+}
+
+.item-masonry .topicImg image {
+  width: 100%;
+}
+.bgHui{
+  height: 20rpx;
+  background: #f8f8f8;
+  width: 100%;
+}
+.pho  {
+  width:40rpx;
+  height: 40rpx;
+}
+
+.pho image {
+  width:40rpx;
+  height: 40rpx;
+  border-radius: 100%;
+}
+
+.content {
+  margin: 0 20rpx;
+  text-align: justify;
+}

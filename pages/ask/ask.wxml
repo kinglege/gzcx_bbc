@@ -1,0 +1,40 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>询问底价</view>
+  </view>
+</view>
+
+<view class="bg-white cars_type flex">
+  <view class="type_img padding-top-xs">
+    <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+  </view>
+  <view class="padding-left ">
+    <view class="text-lg font-bold">宝马3系2020款530i时尚型</view>
+    <view class="flex text-sm padding-top-sm font-gray-999">
+      <view>指导价: 35.00W</view>
+      <view class="padding-left-sm">参考价：
+        <text class="text-lg font-bold colorOrange">32.00W</text>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="margin-top">
+  <form>
+    <view class="cu-form-group">
+      <view class="title">我的名字</view>
+      <input placeholder="请输入您的姓名"></input>
+    </view>
+    <view class="cu-form-group">
+      <view class="title">联系方式</view>
+      <input placeholder="请输入您的手机号码"></input>
+    </view>
+  </form>
+</view>
+
+<button class="btn_question btn_ask">立即询价</button>

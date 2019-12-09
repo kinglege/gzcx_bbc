@@ -1,0 +1,103 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content text-black' style='top:{{StatusBar}}px;'>车型库</view>
+  </view>
+</view>
+
+<scroll-view scroll-y class="indexes" scroll-into-view="indexes-{{listCurID}}" style="height:calc(100vh - {{CustomBar}}px)" scroll-with-animation="true" enable-back-to-top="true">
+  <!-- 热门车库 -->
+  <view class="padding bg-white font-gray-default" style="margin-top:1rpx; padding-right:40rpx;">
+    <view class="title flex justify-between align-center">
+      <view>
+        <view class="font-xxl font-bold">热门车型</view>
+        <view class="hot">
+          <image class="ico-hot" src="../../images/hot.png"></image>
+        </view>
+      </view>
+      <view class="right-n">
+        <image class="next" src="../../images/next.png"></image>
+      </view>
+    </view>
+    <view class="justify-between align-center flex flex-wrap">
+      <view class="car-list justify-center align-center flex flex-wrap padding-top" wx:for="{{hotCar}}" data-series_id="{{item.series_id}}"  wx:key bindtap="btnDetail">
+        <view>
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+        </view>
+        <view class="text-center font-xs">{{item.series_group_name}}</view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 自选车型 -->
+  <view class="padding bg-white font-gray-default margin-top-xs">
+    <view class="font-xxl font-bold">自主选车</view>
+    <view class="font-xl padding-tb font-gray-999">选车类型</view>
+
+    <view>
+      <scroll-view scroll-x  class="bg-white nav" scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class=" item-list" wx:for="{{10}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          新能源
+        </view>
+      </scroll-view>
+    </view>
+
+    <view class="padding-tb font-xl font-gray-999">价格区间：1万~100万</view>
+
+    <!-- 双向滑动条开始 -->
+    <view class='sliderHCon'>
+      <view class='twoSlider'>
+        <view class='select-construct'>
+          <view class='select-area'>
+            <view class='slider-container'>
+              <view class='leftSliderPrice sliderPrice' style='left:{{leftSliderPriceWidthX}};'>
+                <view class='sliderView'>
+                  {{slider1Value*scale}}
+                </view>
+              </view>
+              <slider style='width:{{slider1W+"%"}}' class='slider-left' min='{{min}}' max='{{slider1Max}}' backgroundColor="rgb(246,72,38)" color='#FFAC30' selected-color='#e5e5e5' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed' data-idx='1'
+                block-size="20" block-color="rgb(248,132,35)"></slider>
+              <view class='rightSliderPrice sliderPrice' style='right:{{rightSliderPriceWidthX}};'>
+                <view class='sliderView'>
+                  {{slider2Value*scale}}
+                </view>
+              </view>
+              <slider wx:if='{{!change}}' style='width:{{slider2W+"%"}}' class='slider-right' min='{{slider2Min}}' max='{{max}}' color='#e5e5e5' activeColor="rgb(246,72,38)" selected-color='#FFAC30' bindchanging='changing' catchtouchstart='changeStart' bindchange='changed'
+                data-idx='2' block-size="20" block-color="rgb(248,132,35)"></slider>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <!-- 双向滑动条结束 -->
+
+    <view class="flex padding-top-sm ">
+      <button class="btn-sum text-df" bindtap="carSum">共
+        <text class="sum">2000个</text>车型符合
+      </button>
+
+      <button class="btn-more text-df" bindtap="carMore">更多条件选车></button>
+    </view>
+
+  </view>
+  <block wx:for="{{brand}}" wx:key>
+    <view class="padding-tb-xs padding-lr indexItem-{{item.initial}}" id="indexes-{{item.initial}}" data-index="{{item.initial}}">{{item.initial}}</view>
+    <view class="cu-list menu-avatar no-padding bg-white">
+      <view class="flex align-center padding-lr padding-tb-sm solid-bottom" bindtap="toCar" data-brand_id="{{item2.brand_id}}" data-index2="{{index2}}" wx:for='{{item.data}}' wx:for-index="index2" wx:key wx:for-item="item2">
+        <view style="width:60rpx;height:60rpx">
+          <image src="https://assets.che300.com/theme/images/brand/large/b{{item2.brand_id}}.jpg" style="width:100%;height:100%;border-radius:50%"></image>
+        </view>
+        <view class="font-default margin-left">{{item2.brand_name}}</view>
+      </view>
+    </view>
+  </block>
+</scroll-view>
+<view class="indexBar" style="height:calc(100vh - {{CustomBar}}px - 50px)">
+  <view class="indexBar-box" bindtouchstart="tStart" bindtouchend="tEnd" catchtouchmove="tMove">
+    <view class="indexBar-item" wx:for="{{brand}}" wx:key id="{{index}}" bindtouchstart="getCur" bindtouchend="setCur">{{brand[index].initial}}</view>
+  </view>
+</view>
+<!--选择显示-->
+<view hidden="{{hidden}}" class="indexToast">
+  {{listCur}}
+</view>

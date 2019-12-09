@@ -1,0 +1,317 @@
+<view class="cu-custom" style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed  bg-main-color" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <!-- <navigator class='action border-custom' open-type="navigateBack" delta="1" hover-class="none" style='width:{{Custom.width}}px;height:{{Custom.height}}px;margin-left:calc(750rpx - {{Custom.right}}px)'>
+      <text class='icon-back'></text>
+      <text class='icon-homefill'></text>
+    </navigator> -->
+    <!-- <input class="margin-left-sm" type="text" placeholder="搜索" style="background:#ccc;border-radius:20rpx;"></input> -->
+    <view class="flex  align-center padding-left-sm">
+      <view class="ico-car">
+        <image src="../../images/ico-car.png"></image>
+      </view>
+    </view>
+    <input class=" search bg-gray-default font-xs flex justify-between align-center" type="text" placeholder="宝马"><text class="cuIcon-search padding-right-sm"></text></input>
+
+  </view>
+</view>
+
+<!-- 切换 -->
+<view class="tab-box font-bold">
+  <text bindtap='changTab' class="{{currentTab==0 ? 'active' : ''}}" data-current='0'>热门</text>
+  <text bindtap='changTab' class="{{currentTab==1 ? 'active' : ''}}" data-current='1'>试驾</text>
+  <text bindtap='changTab' class="{{currentTab==2 ? 'active' : ''}}" data-current='2'>车讯</text>
+</view>
+
+<view class="margin-top " style="padding-top:80rpx;">
+  <view wx:if="{{currentTab==0}}">
+    <!-- 轮播 -->
+    <view>
+      <swiper class="swiper padding-lr" interval="5000" duration="1000" circular="true" indicator-dots="{{indicatorDots}}" autoplay="{{autoplay}}" indicator-color="{{beforeColor}}" indicator-active-color="{{afterColor}}">
+        <block wx:for="{{movies}}" wx:for-index="index">
+          <swiper-item>
+            <image src="{{item.url}}" class="slide-image" mode="aspectFill" />
+          </swiper-item>
+        </block>e
+        <swiper-item>
+          <video id="myVideo" src='https://buybuycar.oss-cn-beijing.aliyuncs.com/wx_app/test/video%283%29.MP4'
+            bindtap="bofang" controls='true' ></video>
+        </swiper-item>
+      </swiper>
+    </view>
+
+
+    <!-- 小视频 -->
+    <view class="info margin-top flex justify-between align-center padding-lr">
+      <view class="info_left bg-white">
+        <view class="info_left_img">
+          <image src="../../images/info_left.png"></image>
+        </view>
+        <view class="font-default font-gray-default padding-sm text-df font-bold ">2020款宝马三系上市三系上市</view>
+        <view>
+          <view class="flex justify-around align-center font-xs font-gray-666">
+            <view class="cuIcon-playfill ">1.6W</view>
+            <view class="cuIcon-like">1.5W</view>
+            <view class="cuIcon-appreciate">2.4W</view>
+          </view>
+        </view>
+      </view>
+
+      <view class="info_right bg-white">
+        <view class="info_right_img">
+          <image src="../../images/info_left.png"></image>
+        </view>
+        <view class="font-default font-gray-default padding-sm text-df color-black font-bold">2020款宝马三系上市三系上市</view>
+        <view>
+          <view class="flex justify-around align-center font-xs font-gray-666">
+            <view class="cuIcon-playfill ">1.6W</view>
+            <view class="cuIcon-like">1.5W</view>
+            <view class="cuIcon-appreciate">2.4W</view>
+          </view>
+        </view>
+      </view>
+
+    </view>
+
+
+
+
+    <!-- 热门推荐 -->
+    <view class="bg-white margin-top padding-lr">
+      <view class="font-xxl font-black-title padding-lg font-bold" style="padding-left:0">热门推荐</view>
+      <!-- 推荐视频内容 -->
+      <view class="video">
+        <video src='https://buybuycar.oss-cn-beijing.aliyuncs.com/wx_app/test/video%283%29.MP4'
+          bindtap="bofang" controls='true' ></video>
+      </view>
+
+      <view class="font-sm font-black-title padding-top padding-bottom-sm font-bold">现代ix35 2010款 2.0L 自动两驱精英版GLS </view>
+
+      <view class="flex flex-start align-center padding-bottom-lg  font-xs font-gray-666">
+        <view class="cuIcon-playfill padding-right">1.6W</view>
+        <view class="cuIcon-like padding-right">1.9W</view>
+        <view class="cuIcon-appreciate">2.8W</view>
+      </view>
+    </view>
+    <!-- 客户发布 -->
+    <view class="Customer_release flex bg-white justify-between align-center padding-lr">
+      <view class="Customer_release_left padding-right">
+        <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/Customer_release.png"></image>
+      </view>
+      <view class="Customer_release_right">
+        <view class="font-sm font-black-title font-bold">新车已到店 全新宝马X6广州车广州车展上市</view>
+        <view class="flex padding-sm" style="padding-left:0">
+          <view class="Customer_portrait padding-right-sm">
+            <image src="../../images/nav_1.png"></image>
+          </view>
+          <view class="text-sm">买买车</view>
+          <view class="padding-left-lg text-xs font-gray-999 ">发布于1小时</view>
+        </view>
+      </view>
+    </view>
+    <!-- 新闻图 -->
+    <view class="news bg-white padding">
+      <view class="font-sm font-black-title font-bold">Day3/天（下集）成都—阿坝县 [一路向西秘境探寻系列]</view>
+      <view class="news_imgs flex justify-between align-center padding-tb-sm">
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+      </view>
+      <view class="flex padding-sm bg-white" style="padding-left:0；margin-bottom：1rpx;">
+        <view class="Customer_portrait padding-right-sm">
+          <image src="../../images/nav_1.png"></image>
+        </view>
+        <view class="text-sm">买买车</view>
+        <view class="padding-left-lg text-xs font-gray-999">发布于1小时</view>
+      </view>
+    </view>
+
+
+    <view class="bg-white padding-top padding-lr">
+      <!-- 推荐视频内容 -->
+      <view class="video">
+        <video src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
+          bindtap="bofang" controls='true' ></video>
+      </view>
+
+      <view class="font-sm font-black-title padding-top padding-bottom-sm font-bold">现代ix35 2010款 2.0L 自动两驱精英版GLS </view>
+
+      <view class="flex flex-start align-center padding-bottom-lg  font-xs font-gray-666">
+        <view class="cuIcon-playfill padding-right">1.6W</view>
+        <view class="cuIcon-like padding-right">1.9W</view>
+        <view class="cuIcon-appreciate">2.8W</view>
+      </view>
+    </view>
+    <!-- 客户发布 -->
+    <view class="Customer_release flex bg-white justify-between align-center padding-lr">
+      <view class="Customer_release_left padding-right">
+        <image src="../../images/Customer_release.png"></image>
+      </view>
+      <view class="Customer_release_right">
+        <view class="font-sm font-black-title font-bold">新车已到店 全新宝马X6广州车广州车展上市</view>
+        <view class="flex padding-sm" style="padding-left:0">
+          <view class="Customer_portrait padding-right-sm">
+            <image src="../../images/nav_1.png"></image>
+          </view>
+          <view class="text-sm">买买车</view>
+          <view class="padding-left-lg text-xs font-gray-999 ">发布于1小时</view>
+        </view>
+      </view>
+    </view>
+    <!-- 新闻图 -->
+    <view class="news bg-white padding">
+      <view class="font-sm font-black-title font-bold">Day3/天（下集）成都—阿坝县 [一路向西秘境探寻系列]</view>
+      <view class="news_imgs flex justify-between align-center padding-tb-sm">
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+      </view>
+      <view class="flex padding-sm bg-white" style="padding-left:0；margin-bottom：1rpx;">
+        <view class="Customer_portrait padding-right-sm">
+          <image src="../../images/nav_1.png"></image>
+        </view>
+        <view class="text-sm">买买车</view>
+        <view class="padding-left-lg text-xs font-gray-999">发布于1小时</view>
+      </view>
+    </view>
+
+
+  </view>
+
+  <view wx:if="{{currentTab==1}}" class="padding-lr bg-white">
+    <view class="padding-tb">
+      <view class="video">
+        <video src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
+          bindtap="bofang" controls='true'></video>
+      </view>
+
+      <view class="font-sm font-black-title padding-top padding-bottom-sm font-bold">现代ix35 2010款 2.0L 自动两驱精英版GLS </view>
+
+      <view class="flex flex-start align-center  font-xs font-gray-666">
+        <view class="cuIcon-playfill padding-right">1.6W</view>
+        <view class="cuIcon-like padding-right">1.9W</view>
+        <view class="cuIcon-appreciate">2.8W</view>
+      </view>
+    </view>
+
+    <view style="border-top:2rpx solid #f8f8f8;" class="padding-tb">
+      <view class="video">
+        <video src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
+          bindtap="bofang" controls='true'></video>
+      </view>
+
+      <view class="font-sm font-black-title padding-top padding-bottom-sm font-bold">现代ix35 2010款 2.0L 自动两驱精英版GLS </view>
+
+      <view class="flex flex-start align-center   font-xs font-gray-666">
+        <view class="cuIcon-playfill padding-right">1.6W</view>
+        <view class="cuIcon-like padding-right">1.9W</view>
+        <view class="cuIcon-appreciate">2.8W</view>
+      </view>
+    </view>
+
+    <view style="border-top:2rpx solid #f8f8f8;" class="padding-tb">
+      <view class="video">
+        <video src='http://wxsnsdy.tc.qq.com/105/20210/snsdyvideodownload?filekey=30280201010421301f0201690402534804102ca905ce620b1241b726bc41dcff44e00204012882540400&bizid=1023&hy=SH&fileparam=302c020101042530230204136ffd93020457e3c4ff02024ef202031e8d7f02030f42400204045a320a0201000400'
+          bindtap="bofang" controls='true'></video>
+      </view>
+
+      <view class="font-sm font-black-title padding-top padding-bottom-sm font-bold">现代ix35 2010款 2.0L 自动两驱精英版GLS </view>
+
+      <view class="flex flex-start align-center   font-xs font-gray-666">
+        <view class="cuIcon-playfill padding-right">1.6W</view>
+        <view class="cuIcon-like padding-right">1.9W</view>
+        <view class="cuIcon-appreciate">2.8W</view>
+      </view>
+    </view>
+
+  </view>
+
+  <view wx:if="{{currentTab==2}}">
+    <view class="Customer_release flex bg-white justify-between align-center padding-lr">
+      <view class="Customer_release_left padding-right">
+        <image src="../../images/Customer_release.png"></image>
+      </view>
+      <view class="Customer_release_right">
+        <view class="font-sm font-black-title font-bold">新车已到店 全新宝马X6广州车广州车展上市</view>
+        <view class="flex padding-sm" style="padding-left:0">
+          <view class="Customer_portrait padding-right-sm">
+            <image src="../../images/nav_1.png"></image>
+          </view>
+          <view class="text-sm">买买车</view>
+          <view class="padding-left-lg text-xs font-gray-999 ">发布于1小时</view>
+        </view>
+      </view>
+    </view>
+    <!-- 新闻图 -->
+    <view class="news bg-white padding">
+      <view class="font-sm font-black-title font-bold">Day3/天（下集）成都—阿坝县 [一路向西秘境探寻系列]</view>
+      <view class="news_imgs flex justify-between align-center padding-tb-sm">
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+      </view>
+      <view class="flex padding-sm bg-white" style="padding-left:0；margin-bottom：1rpx;">
+        <view class="Customer_portrait padding-right-sm">
+          <image src="../../images/nav_1.png"></image>
+        </view>
+        <view class="text-sm">买买车</view>
+        <view class="padding-left-lg text-xs font-gray-999">发布于1小时</view>
+      </view>
+    </view>
+    <view class="Customer_release flex bg-white justify-between align-center padding-lr">
+      <view class="Customer_release_left padding-right">
+        <image src="../../images/Customer_release.png"></image>
+      </view>
+      <view class="Customer_release_right">
+        <view class="font-sm font-black-title font-bold">新车已到店 全新宝马X6广州车广州车展上市</view>
+        <view class="flex padding-sm" style="padding-left:0">
+          <view class="Customer_portrait padding-right-sm">
+            <image src="../../images/nav_1.png"></image>
+          </view>
+          <view class="text-sm">买买车</view>
+          <view class="padding-left-lg text-xs font-gray-999 ">发布于1小时</view>
+        </view>
+      </view>
+    </view>
+    <!-- 新闻图 -->
+    <view class="news bg-white padding">
+      <view class="font-sm font-black-title font-bold">Day3/天（下集）成都—阿坝县 [一路向西秘境探寻系列]</view>
+      <view class="news_imgs flex justify-between align-center padding-tb-sm">
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+        <view class="news_img">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/series_vehicle.png"></image>
+        </view>
+      </view>
+      <view class="flex padding-sm bg-white" style="padding-left:0；margin-bottom：1rpx;">
+        <view class="Customer_portrait padding-right-sm">
+          <image src="../../images/nav_1.png"></image>
+        </view>
+        <view class="text-sm">买买车</view>
+        <view class="padding-left-lg text-xs font-gray-999">发布于1小时</view>
+      </view>
+    </view>
+  </view>
+
+</view>

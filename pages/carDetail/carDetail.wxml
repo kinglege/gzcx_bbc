@@ -1,0 +1,223 @@
+<!-- 顶部 -->
+<view class='cu-custom ' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content font-black-title' style='top:{{StatusBar}}px;'>{{detail_info.title}}</view>
+  </view>
+</view>
+
+<!-- <view class='text-center bg-white' wx:if="{{loadModal}}">
+  <image src='/images/more.gif' style="width:280rpx;height:140rpx;"></image>
+</view> -->
+
+<view class="contain bg-white padding-top-xs">
+  <view class="font-xxl font-bold font-black-title padding-top-sm ">{{detail_info.title}}</view>
+  <view class=" margin-top-sm flex justify-start align-center">
+    <view class="photo_img margin-right-xs">
+      <image src="{{detail_info.user_info.headImg}}" style="width:60rpx;height:60rpx;border-radius:50%"></image>
+    </view>
+    <view class="font-gray-default font-bold">{{detail_info.user_info.username}}</view>
+    <view class="padding-left-lg font-gray-666 font-xs ">发布于{{detail_info.create_time}}</view>
+    <view class="padding-left-lg font-gray-666 font-xs">浏览量：{{detail_info.visited_num}}</view>
+  </view>
+
+  <!-- 话题 -->
+  <view class="flex flex-wrap margin-top-sm">
+    <view class="link_label margin-right-sm" wx:for="{{detail_info.topic}}" wx:key>
+      <view class="label_btn margin-top-xs flex align-center justify-around">
+        <view class="btn_radius topic">#</view>
+        <view class="text-sm padding-left-xs" style="color:#efa250;">{{item.title}}</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="text-lg">
+    <view class="text_dec">{{detail_info.content}}</view>
+
+    <view wx:for="{{detail_info.info}}" wx:key>
+
+      <view wx:if='{{item.type==1}}' class='bg-black margin-bottom-sm'>
+        <image mode='widthFix' data-url="{{item.url}}" src="{{item.url}}" style="display:block;width:100%;" bindtap="previewImage"></image>
+        <view class="imgDec padding-tb">{{item.desc}}</view>
+      </view>
+
+      <view wx:if='{{item.type==3}}' class='bg-black margin-bottom-sm'>
+        <video autoplay='{{true}}' show-center-play-btn="{{false}}" src='{{item.url}}' controls="true" objectFit="cover" style='width:100%'>
+        </video>
+        <view class="imgDec">{{item.desc}}</view>
+      </view>
+
+      <view wx:if='{{item.type==2}}'>
+        <view class="text-lg font-black-title margin-bottom-sm">
+          <view class="text_dec">{{item.desc}}</view>
+        </view>
+      </view>
+
+    </view>
+  </view>
+</view>
+
+
+<!-- 相关车型推荐 -->
+<view class="bg-white  margin-top-sm">
+  <view wx-if="{{detail_info.topic_recommend_car.length}}">
+    <view class="padding">
+      <view class="text-xl font-bold">相关车型推荐</view>
+      <view class="bg-gray-default cars_type margin-top flex radius" bindtap="carDetail" data-series_id="{{item.series_id}}" wx:for="{{detail_info.topic_recommend_car}}" wx:key>
+        <view class="type_img padding-top-xs">
+          <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+        </view>
+        <view class="padding-left ">
+          <view class="text-lg font-bold">{{item.series_name}}</view>
+          <view class="flex text-sm padding-top-sm font-gray-999">
+            <view>厂家指导价：
+              <text class="text-lg font-bold colorOrange">￥{{item.min_price}}-{{item.max_price}}W</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="palyNull" wx-else></view>
+</view>
+
+
+
+
+
+
+
+
+<!-- 相关推荐 -->
+<view class="bg-white margin-top-sm">
+  <view wx-if="{{detail_info.topic_recommend_news.length}}">
+    <view class="padding">
+      <view class="text-xl padding-lr font-bold ">相关推荐</view>
+      <view class="Customer_release padding-lr flex justify-between align-start padding-top" wx:for="{{detail_info.topic_recommend_news}}" wx:key bindtap="detail">
+        <view class="Customer_release_left padding-left">
+          <image src="{{item.cover_url}}"></image>
+        </view>
+        <view class="Customer_release_right" style="width:460rpx;">
+          <view class="font-sm font-black-title font-bold">{{item.title}}</view>
+          <view class="flex padding-sm justify-between" style="padding-left:0">
+            <view class="text-sm font-gray-999">{{item.username}}</view>
+            <view class="padding-left-lg text-sm font-gray-999 ">浏览数：{{item.visited_num}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="palyNull" wx-else></view>
+
+  </view>
+</view>
+
+
+
+<!-- 精彩评论 -->
+<view class="bg-white  margin-top-sm">
+  <view class="text-xl padding-lr font-bold padding-tb ">精彩评论
+    <text class="colorOrange">{{detail_info.comment_num}}</text>条</view>
+
+  <view class="padding-lr padding-tb-sm" wx:for="{{getComment}}" wx:key>
+    <view>
+      <view class="flex justify-between align-center">
+        <view class="flex justify-start align-center" data-index="{{index}}" data-top_id="{{item.id}}" data-pid="{{item.id}}" bindtap="comment_reply">
+          <view class="photo_imgs">
+            <image src="{{item.headImg}}"></image>
+          </view>
+          <view>
+            <view class="text-df font-gray-default font-bold">{{item.username}}</view>
+            <view class="text-xs font-gray-deep padding-top-xs">{{item.create_time}}</view>
+          </view>
+        </view>
+
+
+        <view style="text-align: center;" data-index="{{index}}" data-id="{{item.id}}" bindtap="{{item.is_praise?'cancelZan2' :'postZan2'}}">
+          <view class="{{item.is_praise ? 'cuIcon-appreciatefill colorOrange' : 'cuIcon-appreciate'}}"></view>
+          <view class="{{item.is_praise ? 'colorOrange' : 'text-gray'}}">{{item.praise_num}}</view>
+        </view>
+
+
+      </view>
+      <view class="font-default font-gray-default" data-index="{{index}}" data-top_id="{{item.id}}" data-pid="{{item.id}}" bindtap="comment_reply" style="padding:20rpx 15rpx 20rpx 92rpx">{{item.content}}</view>
+    </view>
+    <view wx:if='{{item.children}}' wx:key>
+      <view wx:for='{{item.children}}' wx:key style="background:#f8f8f8; margin-left:90rpx;" data-index="{{index}}" data-top_id="{{item.id}}" data-pid="{{item1.id}}" class="margin-bottom-sm padding-sm" wx:for-item='item1' wx:for-index='index1'>
+        <view class="flex justify-between align-center">
+          <view class="flex justify-between align-center" data-index="{{index}}" data-top_id="{{item.id}}" data-pid="{{item1.id}}" bindtap="comment_reply">
+            <image src="{{item1.headImg}}" style="width:40rpx;height:40rpx;border-radius:50%;"></image>
+            <view class="font-xs font-gray-default font-bold margin-left-xs">{{item1.username}}</view>
+            <view class="font-xxs font-gray-deep margin-left-sm">{{item1.create_time}}</view>
+          </view>
+
+          <view style="text-align: center;" data-index="{{index}}" data-index1="{{index1}}" data-id="{{item1.id}}" bindtap="{{item1.is_praise?'cancelZan3' :'postZan3'}}">
+            <view class="{{item1.is_praise ? 'cuIcon-appreciatefill colorOrange' : 'cuIcon-appreciate'}}"></view>
+            <view class="{{item1.is_praise ? 'colorOrange' : 'text-gray'}}">{{item1.praise_num}}</view>
+          </view>
+        </view>
+
+        <view class="font-xs font-gray-default padding-top-xs" style="margin-left:50rpx;" data-index="{{index}}" data-top_id="{{item.id}}" data-pid="{{item1.id}}" bindtap="comment_reply">
+          <block wx:if='{{item1.p_comment}}'>回复
+            <text class="text-blue">{{item1.p_comment.username}}:</text>
+          </block>{{item1.content}}
+        </view>
+      </view>
+    </view>
+    <view wx:if='{{item.reply_count>0}}'>
+      <view wx:if="{{item.children.length<=0}}" class="text-center text-blue font-xs" data-item="{{item}}" data-index="{{index}}" bindtap="check_reply">查看{{item.reply_count}}条回复</view>
+      <view wx:elif="{{item.reply_count<=item.children.length}}" class="text-center text-blue font-xs" data-item="{{item}}" data-index="{{index}}" bindtap="hide_reply">收起</view>
+      <view wx:else class="text-center text-orange font-xs" data-item="{{item}}" data-index="{{index}}" bindtap="check_reply">展开更多回复</view>
+    </view>
+
+  </view>
+
+  <view class="padding-lg text-center font-gray-999 text-xs">我是有底线的！</view>
+</view>
+
+
+
+
+
+
+
+
+<!-- 底部 -->
+
+<view class="detail_bottom padding-lr-sm  bg-white">
+  <view class="cu-bar tabbar border shop  padding-tb-xs">
+    <view class="inp bg-gray-default" bindtap="top_comment" data-target="bottomModal">留下您的评论</view>
+    <button class="action" data-index="{{index}}" data-item="{{item}}" style="background:none" bindtap="shareBtn" open-type="share">
+      <view class="cuIcon-share"></view>分享
+    </button>
+
+    <view class="action text-black  " bindtap="{{detail_info.is_praise?'cancelZan' :'postZan'}}">
+      <view class="{{detail_info.is_praise ? 'cuIcon-appreciatefill colorOrange' : 'cuIcon-appreciate'}}"></view>
+      <!-- <view>
+        <image src="../../images/share.png" style="width:36rpx; height:36rpx;"></image>
+      </view> -->
+      <view class="{{detail_info.is_praise ? 'colorOrange' : 'text-black'}}"> {{detail_info.praise_num}}</view>
+    </view>
+
+    <view class="action text-black" bindtap="{{detail_info.is_collection?'cancelCollect':'collect'}}" >
+      <view class="{{detail_info.is_collection ? 'cuIcon-favorfill colorOrange' : 'cuIcon-favor'}}"></view>
+      <!-- <view>
+        <image src="../../images/zan.png" style="width:36rpx; height:36rpx;"></image>
+      </view> -->
+      <view class="{{detail_info.is_collection ? 'colorOrange' : 'text-black'}}">收藏</view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-modal bottom-modal {{modalName=='commentModal'?'show':''}}" catchtouchmove="preventTouchMove">
+  <view class="cu-dialog bg-white padding" style="height:1100rpx;">
+    <view class="bg-white flex justify-between">
+      <view class="action text-black text-lg" bindtap="hideModal">取消</view>
+      <view class=" action btnsubmit" bindtap="comment_post">发布</view>
+    </view>
+    <view class="padding-top-sm bg-white">
+      <textarea wx:if="{{modalName=='commentModal'}}" class="comment" value="{{comment_content}}" bindinput="commentInput" placeholder="留下您的评论" adjust-position='{{false}}' focus="{{comment_focus}}"></textarea>
+    </view>
+  </view>
+</view>

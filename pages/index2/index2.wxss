@@ -1,0 +1,140 @@
+.ico-car{
+  width: 170rpx;
+  height: 39rpx;
+}
+.ico-car image{
+  width: 170rpx;
+  height: 39rpx;
+}
+
+
+page{
+  background-color: #f8f8f8;
+}
+.search{
+  border-radius: 27rpx;
+  height: 54rpx;
+  width: 300rpx;
+  margin-right: 15rpx;
+  padding-left: 20rpx;
+}
+
+
+
+
+
+/* 切换 */ 
+.tab-box {
+  width: 100%;
+  height: 80rpx;
+  display: flex;
+  padding-right: 65rpx;
+  background: white;
+  justify-content: center;
+  overflow: hidden;
+  position: fixed;
+  z-index: 999;
+}
+
+.tab-box text {
+  margin-left: 60rpx;
+  font-size: 30rpx;
+  height: 74rpx;
+  line-height: 72rpx;
+}
+
+.active {
+  border-bottom: 30rpx dashed rgb(246,72,38);
+  border-radius: 30rpx;
+}
+/* 轮播 */
+.swiper {
+  
+  height: 400rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 100%;
+  width: 100%;
+}
+.swiper video {
+  height: 100%;
+  width: 100%;
+}
+/* 轮播下两视频 */
+.info{
+  height: 435rpx;
+  /* width: 690rpx; */
+}
+.info_left{
+  height: 435rpx;
+  width: 328rpx;
+  border-radius: 15rpx;
+}
+.info_left_img{
+  width: 328rpx;
+  height: 262rpx;
+}
+.info_left_img image{
+  width: 328rpx;
+  height: 262rpx;
+}
+.info_right{
+  height: 435rpx;
+  width: 328rpx;
+}
+.info_right_img{
+  width: 328rpx;
+  height: 262rpx;
+}
+.info_right_img image{
+  width: 328rpx;
+  height: 262rpx;
+}
+/* 热门推荐 */
+.video video{
+  width: 100%;
+  height: 352rpx;
+  border-radius: 20rpx;
+}
+/* 客户发布 */
+.Customer_release{
+  margin-top: 2rpx;
+  height: 206rpx;
+}
+.Customer_release_left{
+  width: 202rpx;
+  height: 130rpx;
+}
+.Customer_release_left image{
+  width: 202rpx;
+  height: 130rpx;
+}
+.Customer_portrait{
+  width: 60rpx;
+  height: 38rpx;
+}
+.Customer_portrait image{
+  width: 60rpx;
+  height: 38rpx;
+}
+.news{
+  margin-top: 2rpx;
+  margin-bottom: 2rpx;
+}
+.news_img{
+  width: 30%;
+  height: 136rpx;
+}
+.news_img image{
+  width: 100%;
+  height: 100%;
+}
+
+
+.swiper swiper-item image{
+  border-radius: 12rpx;
+}
+.swiper swiper-item video{
+   border-radius: 12rpx;
+}

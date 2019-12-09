@@ -1,0 +1,41 @@
+<!-- 顶部 -->
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>我的收藏</view>
+  </view>
+</view>
+
+
+<!-- 切换 -->
+<view class="tab-box bg-white">
+  <text bindtap='changTab' class="{{currentTab==0 ? 'active' : ''}} tab_box_text" data-current='0'>车型</text>
+  <text bindtap='changTab' class="{{currentTab==1 ? 'active' : ''}} tab_box_text" data-current='1'>车讯</text>
+</view>
+
+<view>
+
+  <view wx:if="{{currentTab==0}}">
+    <view class="text-center">
+      <view class="null_img">
+        <image src="../../images/null.png"></image>
+      </view>
+      <view class="text-xs font-gray-999">您的收藏夹空空如也，赶紧去收藏吧！</view>
+      <view class="btn_ask btn_look">去看车</view>
+    </view>
+  </view>
+
+  <view wx:if="{{currentTab==1}}">
+    <view class="text-center">
+      <view class="null_img">
+        <image src="../../images/null.png"></image>
+      </view>
+      <view class="text-xs font-gray-999">您的收藏夹空空如也，赶紧去收藏吧！</view>
+      <view class="btn_ask btn_look">去看车</view>
+    </view>
+  </view>
+
+</view>

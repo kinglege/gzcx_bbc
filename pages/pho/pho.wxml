@@ -1,0 +1,65 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>宝马</view>
+  </view>
+</view>
+
+
+<!-- 切换 -->
+<view class="tab-box ">
+  <text bindtap='changTab' class="{{currentTab==0 ? 'active' : ''}} tab_box_text" data-current='0'>外观</text>
+  <text bindtap='changTab' class="{{currentTab==1 ? 'active' : ''}} tab_box_text" data-current='1'>内饰</text>
+  <text bindtap='changTab' class="{{currentTab==2 ? 'active' : ''}} tab_box_text" data-current='2'>空间</text>
+</view>
+
+<view class="warp">
+  <view wx:if="{{currentTab==0}}">
+    <view class="padding-tb-sm padding-right">
+      <view class='imgList'>
+        <view class='imgList-li padding-left ' wx:for='{{imgArr}}' wx:key>
+          <image class='img' src='{{item}}' data-index='{{index}}' bindtap='waiguan'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+
+
+  <view wx:if="{{currentTab==1}}">
+    <view class="padding-tb-sm padding-right">
+      <view class='imgList'>
+        <view class='imgList-li padding-left ' wx:for='{{imgArr2}}' wx:key>
+          <image class='img' src='{{item}}' data-index='{{index}}' bindtap='neishi'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{currentTab==2}}">
+    <view class="padding-tb-sm padding-right">
+      <view class='imgList'>
+        <view class='imgList-li padding-left ' wx:for='{{imgArr3}}' wx:key>
+          <image class='img' src='{{item}}' data-index='{{index}}' bindtap='kongjian'></image>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+
+<view class="cars_buttom">
+  <view class="flex padding justify-between align-center">
+    <view>
+      <view class="font-default font-bold font-black-title">宝马3系 2020款 530i 时尚型</view>
+      <view class="font-xs font-gray-666 padding-top-xs">指导价:
+        <text class="colorOrange font-xl font-bold padding-left-sm">￥35.00W</text>
+      </view>
+    </view>
+ 
+    <view class="btn_ask ask_price" bindtap="askPrice">询问底价</view>
+  </view>
+</view>

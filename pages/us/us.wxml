@@ -1,0 +1,62 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <view class='content text-black' style='top:{{StatusBar}}px;'>我的</view>
+  </view>
+</view>
+
+<view class="us_header">
+  <view class="us_img flex justify-between align-center">
+    <view class="us_top flex justify-start align-center">
+      <view class="flex align-center padding-left" wx:if="{{userinfo.status==200}}">
+        <!-- 登录状态 -->
+        <view class="photo_img">
+          <image src="{{userinfo.data.headImg}}"></image>
+        </view>
+        <view class="padding-left-sm text-lg">{{userinfo.data.username}}</view>
+      </view>
+
+
+      <!-- 未登录状态 -->
+      <view wx:else>
+        <view style="font-size:36rpx;padding-left:88rpx;padding-bottom:40rpx;">买买车！欢迎您！</view>
+        <button class="font-lg" bindtap="loginBtn">立即登录</button>
+      </view>
+    </view>
+    <!-- <view class="next_img">
+      <image src="../../images/next.png"></image>
+    </view> -->
+  </view>
+</view>
+
+<view class="cu-list menu card-menu margin-top margin-bottom-xl shadow-lg radius">
+
+  <view class="cu-item arrow flex" bindtap="myPost">
+    <view class="postbar_img">
+      <image src="../../images/postbar.png"></image>
+    </view>
+    <view class="text-black padding-left-sm">我的帖子</view>
+  </view>
+
+  <view class="cu-item arrow flex" bindtap="collect">
+    <view class="postbar_img">
+      <image src="../../images/Collection.png"></image>
+    </view>
+    <view class="text-black padding-left-sm">我的收藏</view>
+  </view>
+
+  <view class="cu-item arrow flex">
+    <view class="postbar_img">
+      <image src="../../images/guanzhu.png"></image>
+    </view>
+    <view class="text-black padding-left-sm">我的关注</view>
+  </view>
+
+  <view class="cu-item arrow flex" bindtap="getSet">
+    <view class="postbar_img">
+      <image src="../../images/setup.png"></image>
+    </view>
+    <view class="text-black padding-left-sm">设置</view>
+  </view>
+
+</view>

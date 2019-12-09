@@ -1,0 +1,137 @@
+<!-- 顶部 -->
+<view class='cu-custom ' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>{{seriesDetail.series_name}}</view>
+  </view>
+</view>
+
+<view class="margin-lr  margin-top cars_top" bindtap="imgSum">
+  <view class="top_img">
+    <image src="../../images/detail-car.jpg"></image>
+  </view>
+  <view class="tip">共560张照片</view>
+</view>
+
+
+<view class="bg-white padding margin-lr  margin-bottom flex">
+  <view class="canshu_img padding-top-sm">
+    <image src="../../images/cars_sanshu.png"></image>
+  </view>
+  <view class="padding-left-sm" style="width:500rpx;">
+    <view class="flex justify-between ">
+      <view class="text-lg font-black-title font-bold">{{seriesDetail.series_name}}</view>
+      <view class="canshu_btn">全系参数</view>
+    </view>
+    <view class="font-default padding-top-xs flex align-center">
+      <view>厂家指导价:</view>
+      <view class="colorOrange text-xl font-bold">￥{{seriesDetail.min_price}}-{{seriesDetail.max_price}}w</view>
+    </view>
+  </view>
+</view>
+
+
+<view class="tab-box">
+  <text bindtap='changTab' class="{{currentTab==0 ? 'active' : ''}}  tab_box_text" data-current='0'>车型</text>
+  <text bindtap='changTab' class="{{currentTab==1 ? 'active' : ''}} tab_box_text" data-current='1'>车帖</text>
+</view>
+
+<view style="padding-bottom:110rpx;">
+  <view wx:if="{{currentTab==0}}">
+
+    <view class="padding">
+      <scroll-view scroll-x class="nav margin-bottom " scroll-with-animation scroll-left="{{scrollLeft}}">
+        <view class="cu-item year_item {{index==TabCur?'selected':''}}" wx:for="{{yearCar}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+          {{item.model_year}}
+        </view>
+      </scroll-view>
+
+      <view class=" margin-bottom" wx:for="{{yearCar[TabCur].data}}" wx:for-index="index2" wx:key wx:for-item="item2">
+
+        <view class="bg-white padding radius flex justify-between margin-bottom">
+          <view bindtap="Detail" style="width:490rpx;">
+            <view class="text-df font-bold">{{item2.model_name}}</view>
+            <view class="text-sm padding-top-xs align-center ">
+              <view>指导价：
+                <text class="font-sm font-bold colorOrange">￥{{item2.model_price}}</text>
+              </view>
+            </view>
+          </view>
+          <view class="btn_ask ask" bindtap="btnAsk">询低价</view>
+        </view>
+
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{currentTab==1}}">
+
+    <view class="padding">
+      <!-- 瀑布流开始 -->
+      <view class='case-page'>
+        <view class='list-masonry'>
+          <view class='item-masonry' wx:for="{{seriesDetail.news}}" wx:key>
+
+            <view class="topicImg" data-id="{{item.id}}" bindtap="carsContent">
+              <image src='{{item.cover_url}}' mode='widthFix' style="border: 0;vertical-align: bottom; displat:block;"></image>
+            </view>
+
+            <view class="padding-tb-xs padding-lr-sm">
+              <view class="text-sm font-bold newsTitle">{{item.title}}</view>
+              <view class="flex justify-between align-center padding-top-xs">
+                <view class="flex align-center">
+                  <view class="pho">
+                    <image src="{{item.headImg}}"></image>
+                  </view>
+                  <view class="padding-left-xs font-xs font-gray-666 userName">{{item.username}}</view>
+                </view>
+
+                <view class="text-sm font-gray-default">
+                  <view class="cuIcon-attention ">
+                    <text> {{item.visited_num}}</text>
+                  </view>
+                </view>
+
+              </view>
+
+            </view>
+            <view class="bgHui"></view>
+          </view>
+        </view>
+      </view>
+      <!-- 瀑布流结束 -->
+
+    </view>
+
+
+
+  </view>
+</view>
+
+
+
+
+
+<view class="detail_bottom">
+  <view class="cu-bar bg-white tabbar border shop " style="height:100rpx;">
+    <button class="action padding-tb-xs" open-type="share" style="background:none;">
+      <view class="cuIcon-share text-black "></view>分享
+    </button>
+
+
+    <view class="action padding-tb-xs" bindtap="{{seriesDetail.is_collection?'cancelCollect':'collect'}}" data-series_id="{{series_id}}" >
+      <view class="{{seriesDetail.is_collection ? 'cuIcon-favorfill colorOrange' : 'cuIcon-favor'}}"></view>
+      <view class="{{seriesDetail.is_collection ? 'colorOrange' : 'text-black'}}">收藏</view>
+    </view>
+
+
+
+    <button class="action padding-tb-xs " open-type="contact" style="background:none;">
+      <view class="cuIcon-service text-black"></view>客服
+    </button>
+
+    <view class="bg-orange submit padding-tb-xs" bindtap="tel">联系我们</view>
+  </view>
+</view>

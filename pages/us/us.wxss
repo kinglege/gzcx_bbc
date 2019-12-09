@@ -1,0 +1,79 @@
+.us_header{
+  padding:0 0;
+}
+page{
+  background-color: #f8f8f8;
+}
+/* =============== */
+.us_top{
+  flex-direction: column;
+}
+button{
+  width: 205rpx;
+  height: 60rpx;
+  background-color: #f3f3f3;
+  color: #f74f2a;
+  border-radius: 60rpx;
+  line-height: 60rpx;
+  
+}
+
+
+/* =========== */
+.us_img{
+  background-image: url(https://buybuycar.oss-cn-beijing.aliyuncs.com/%E4%B8%AA%E4%BA%BA%E4%B8%AD%E5%BF%83%E8%83%8C%E6%99%AF.png);
+  background-size: cover;
+  height: 324rpx;
+  padding-left: 50rpx;
+  color: #fff;
+
+}
+
+.photo_img{
+  width: 100rpx;
+  height: 100rpx;
+}
+.photo_img image{
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 50%;
+}
+.next_img{
+  width: 30rpx;
+  height: 30rpx;
+  transform: translateX(-50rpx);
+}
+.next_img image{
+  width: 30rpx;
+  height: 30rpx;
+}
+.postbar{
+  margin-top: 105rpx;
+}
+.postbar_img{
+  width: 40rpx;
+  height: 40rpx;
+}
+.postbar_img image{
+  width: 40rpx;
+  height: 40rpx;
+}
+/* .Collection_img{
+  width: 46rpx;
+  height: 46rpx;
+}
+.Collection_img image{
+  width: 46rpx;
+  height: 46rpx;
+}
+.setup_img{
+  width: 44rpx;
+  height: 44rpx;
+}
+.setup_img image{
+  width: 44rpx;
+  height: 44rpx;
+} */
+.setup{
+  margin-top: 50rpx;
+}

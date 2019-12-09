@@ -1,0 +1,62 @@
+
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>车型库</view>
+  </view>
+</view>
+
+
+
+<!-- 在售/停售切换 -->
+
+<view class="tab-box  padding-lr bg-white">
+  <text bindtap='changTab' class="{{currentTab==0 ? 'active' : ''}}  tab_box_text" data-current='0'>在售</text>
+  <text bindtap='changTab' class="{{currentTab==1 ? 'active' : ''}} tab_box_text" data-current='1'>停售</text>
+</view>
+
+
+<view>
+
+  <view wx:if="{{currentTab==0}}" style="margin-top:100rpx;">
+    <view wx:for="{{brand}}" wx:key >
+      <view class="margin-left-lg margin-tb-xs text-sm font-gray-999 ">{{item.series_group_name}}</view>
+      <view class="bg-white" wx:for="{{item.data}}" wx:for-index="index2" wx:key wx:for-item="item2" bindtap="carsDetail" data-series_id="{{item2.series_id}}">
+        <view class="flex justify-start align-center cars-item ">
+          <view class="cars  padding-right-lg padding-left-sm">
+            <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+          </view>
+          <view class="text-lg font-bold ">
+            <view class="padding-bottom-sm font-gray-default">{{item2.series_name}}</view>
+            <view class="money">{{item2.min_price}}-{{item2.max_price}}W</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+   
+
+  </view>
+
+  <view wx:if="{{currentTab==1}}" style="margin-top:100rpx;">
+    <view wx:for="{{brand_all}}" wx:key>
+      <view class="margin-left-lg margin-tb-xs  text-sm font-gray-999 ">{{item.series_group_name}}</view>
+      <view class="bg-white" wx:for="{{item.data}}" wx:for-index="index1" wx:key wx:for-item="item1" bindtap="carsDetail" data-series_id="{{item1.series_id}}">
+        <view class="flex justify-start align-center cars-item ">
+          <view class="cars  padding-right-lg padding-left-sm">
+            <image src="https://buybuycar.oss-cn-beijing.aliyuncs.com/hot-car1.png"></image>
+          </view>
+          <view class="text-lg font-bold ">
+            <view class="padding-bottom-sm font-gray-default">{{item1.series_name}}</view>
+            <view class="money">{{item1.min_price}}-{{item1.max_price}}W</view>
+          </view>
+        </view>
+
+      </view>
+    </view>
+
+  </view>
+</view>

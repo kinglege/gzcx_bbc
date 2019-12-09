@@ -1,0 +1,54 @@
+<!-- 顶部 -->
+<view class='cu-custom' style="height:{{CustomBar}}px;">
+  <view class="cu-bar fixed bg-white" style="height:{{CustomBar}}px;padding-top:{{StatusBar}}px;">
+    <navigator class='action' open-type="navigateBack" delta="1" hover-class="none">
+      <text class='cuIcon-back text-black'></text>
+    </navigator>
+    <view class='content text-black' style='top:{{StatusBar}}px;'>条件选车</view>
+  </view>
+</view>
+
+
+<view class="padding flex justify-between">
+  <view class="flex justify-around">
+    <view class="btn_reset flex justify-around margin-right-sm">
+      <view>轿车</view>
+      <view class="cuIcon-close"></view>
+    </view>
+    <view class="btn_reset flex justify-around">
+      <view>5-10万</view>
+      <view class="cuIcon-close"></view>
+    </view>
+  </view>
+
+  <view class="btn_reset">重置</view>
+</view>
+
+<view class="VerticalBox">
+  <scroll-view class="VerticalNav nav" scroll-y scroll-with-animation scroll-top="{{VerticalNavTop}}" style="height:calc(100vh - {{2*CustomBar}}rpx)">
+    <view class="cu-item {{index==TabCur?'text-green cur':''}}" wx:for="{{list}}" wx:key bindtap='tabSelect' data-id="{{index}}">
+      参数{{item.name}}
+    </view>
+  </scroll-view>
+
+  <scroll-view class="VerticalMain" scroll-y scroll-with-animation style="height:calc(100vh - {{2*CustomBar}}rpx);width:550rpx;" scroll-into-view="main-{{MainCur}}" bindscroll="VerticalMain">
+    <view wx:for="{{list}}" wx:key id="main-{{index}}">
+      <view class='padding' style="background:#fff;">
+        <view class="text-lg font-bold font-black-title">参数-{{item.name}}</view>
+        <view>
+          <view class="text-sm font-gray-999 padding-tb-sm">类型</view>
+          <view class="record">
+            <view class="search_type " wx:for='{{6}}'>系能源</view>
+          </view>
+        </view>
+
+        <view>
+          <view class="text-sm font-gray-999 padding-tb-sm">价格</view>
+          <view class="record">
+            <view class="search_type " wx:for='{{6}}'>5万以下</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
